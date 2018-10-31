@@ -1,5 +1,0 @@
-function btnCalculer_onclick()
-{ 
- 	
-
-}
