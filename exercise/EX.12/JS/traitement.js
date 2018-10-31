@@ -14,7 +14,7 @@ function btnCalculer_onclick()
     }
     else
     {
-        if((Nb1=Nb2)||(Nb2>Nb3))
+        if((Nb1==Nb2)||(Nb2>Nb3))
         {
             Nb4 = Nb4 + Nb1
         }
