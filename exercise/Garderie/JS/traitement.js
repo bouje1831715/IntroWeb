@@ -1,130 +1,100 @@
 var Vet, Msg, PrixT, Toilet, Jour, Prix, HJour, VetP;
 
-Vet = 0;
+
 PrixT = 0;
 Toilet = 0;
 Jour = 0;
 Prix = 0;
 HJour = 0;
 VetP = 0;
+NbHTot = 0;
 
 
 
 
-function prix_animal()
+function saisirPrix_animal()
 {
-    if (document.getElementById("radChien").Checked == true)
+
+    if (document.getElementById("radChien").checked == true)
     {
-        Prix = 18,50
+        Prix = 18.50
 
     }
     else{
-        Prix = 16,95
+        Prix = 16.95
     }
 
 }
-function toiletage()
+function saisirToiletage()
 {
     Toilet = document.getElementById("chkServ").value;
-    if (document.getElementById("chkServ").Checked == true)
+    if (document.getElementById("chkServ").checked == true)
     {
         Toilet = 5
 
     }
 }
-function taux_horaire()
+function saisirTaux_horaire()
 {
     Vet = document.getElementById("lstVeterinaire").value;
-    if (Vet == "Audrey Bouchard")
-    {
-        VetP = 45;
-    }
-    else if (Vet == "Maxime Simard")
-    {
-        vetP = 25;
-    }
-    else if (Vet == "Stéphane Tremblay")
-    {
-        VetP = 35;
-    }
-    else if (Vet == "Mélissa Caron")
-    {
-        VetP = 40;
-    }
 
+
+    switch(Vet)
+    {
+        case "Audrey Bouchard":
+            VetP = 45;
+            break;
+        case "Maxime Simard":
+            VetP = 25;
+            break;
+
+        case "Stéphane Tremblay":
+            VetP = 35;
+            break;
+
+        case "Mélissa Caron":
+            VetP = 40;
+            break;
+
+
+    }
 }
 
-function nb_heure_jour()
+function saisirNb_heure_jour()
 {
-
-
     Jour = parseInt(document.getElementById("txtNbreJours").value);
     HJour = parseInt(document.getElementById("txtHJours").value);
-    switch(HJour)
-    {
-        case 1:
-            VetP*1;
-            break;
-        case 2:
-            VetP*2;
-            break;
-        case 3:
-            VetP*3;
-            break;
-        case 4:
-            VetP*4;
-            break;
-        case 5:
-            VetP*5;
-            break;
-        case 6:
-            VetP*6;
-            break;
-        case 7:
-            VetP*7;
-            break;
-        case 8:
-            VetP*8;
-            break;
-        case 9:
-            VetP*9;
-            break;
-        case 10:
-            VetP*10;
-            break;
-
-
-
-    }
-
 }
 
 
 
 function btnCalculer_onclick()
 {
-    nb_heure_jour();
-    taux_horaire();
-    toiletage();
-    prix_animal();
+    saisirNb_heure_jour();
+    saisirTaux_horaire();
+    saisirToiletage();
+    saisirPrix_animal();
 
 
-    PrixT = (Prix*Jour)+VetP;
+    NbHTot = HJour*VetP;
+    PrixT = Prix*Jour+Toilet;
 
 
     //rabais jour
-        if (Jour<=5 && Jour>= 10)
+        if (Jour>=5 && Jour<= 10)
         {
-            PrixT = PrixT*0,95
+            PrixT = PrixT*0.95
         }
-        else if (Jour<=10 && Jour>= 30)
+        else if (Jour>=10 && Jour<= 30)
         {
-            PrixT = PrixT*0,90
+            PrixT = PrixT*0.90
         }
         else if ( Jour> 30)
         {
-            PrixT = PrixT*0,85
+            PrixT = PrixT*0.85
         }
+
+        PrixT =  PrixT+NbHTot
         Msg = document.getElementById("lblMessage").innerHTML="Cela vous couterai " + PrixT + " $";
 
 
