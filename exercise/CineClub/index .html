@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="stylesheet" href="CSS/style.css">
+   <title>Le Cinéclub</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<!-- Boite de texte -->
+<form action="" method="get">
+    <fieldset>
+        <legend><h1>Le Cinéclub</h1></legend>
+        <!-- Boîtes de texte -->
+        <p> Entrez le prix de base:<input id="txtBasePrix" name="txtBasePrix"></p>
+        <p> Entrez l'âge:<input id="txtAge" name="txtAge"></p>
+        <!-- Liste déroulante -->
+        <p> Sélectionnez le choix du film:
+            <select id="lstOptions" size=1 name="lstOptions" onchange="img_onchange(this);" >
+                <option selected value="1">Barney, L'attaque</option>
+                <option value="2">Billy The Kid</option>
+                <option value="3">Platon</option>
+                <option value="4">Big Bird , La Revanche</option>
+            </select>
+        </p>
+        <!-- Radio bouton -->
+        Midi<input type="radio" name="radChoix" checked="true" id="radMidi">
+        Soir<input type="radio" name="radChoix" id="radSoir">
+        <!-- Case à cocher -->
+        <p>Mi-session<input id="chkMiSession" name="chkMiSession" type="checkbox"></p>
+        <!-- label affichage -->
+        <p id="lblMessage" name="lblMessage"></p>
+        <!-- Bouton -->
+    </fieldset>
+    <fieldset>
+        <p><button id="btnCalculer" name="btnCalculer" type="button" onclick="btnCalculer_onclick()">Calculer</button></p>
+    </fieldset>
+</form>
+<div>
+    <img id="imgFilm" >
+</div>
+<script src="JS/cinéclubV2.js"></script>
+</body>
+</html>
