@@ -1,8 +1,23 @@
 var  prixBase, age, rabais, prixFinal, temps, film, img;
 
 
-film=document.getElementById("lstOptions").value;
 
+
+function calculerPrix()
+{
+    prixBase=parseFloat(document.getElementById("txtBasePrix").value);
+    trouverAge();
+    prixFinal=prixBase-(prixBase*rabais);
+}
+
+function btnCalculer_onclick()
+{
+    calculerPrix();
+    film=document.getElementById("lstOptions").value;
+
+    document.getElementById("lblMessage").innerHTML = "Un billet pour le "+temps+" pour une personne aggée de "+age+" ans coûterai " +prixFinal+"$ pour visualliser le film "+film;
+
+}
 function trouverAge()
 {
     age=parseInt(document.getElementById("txtAge").value);
@@ -49,41 +64,14 @@ function trouverAge()
     }
 }
 
-function calculerPrix()
-{
-    prixBase=parseFloat(document.getElementById("txtBasePrix").value);
-    trouverAge();
-    prixFinal=prixBase-(prixBase*rabais);
-}
-
-function btnCalculer_onclick()
-{
-    calculerPrix();
-
-    document.getElementById("lblMessage").innerHTML = "Un billet pour le "+temps+" pour une personne aggée de "+age+" ans coûterai " +prixFinal+"$ pour visualliser le film "+film;
-
-}
 
 function img_onchange()
 {
+    var img;
 
-    img=parseInt(document.getElementById("lstOptions").value);
+    img=document.getElementById("lstOptions").value;
 
-    if (img == 1)
-    {
-        document.getElementById("imgFilm").src="JS/barney.jpg";
-    }
-    if (img == 2)
-    {
-        document.getElementById("imgFilm").src="JS/barney.jpg";
-    }
-    if (img == 3)
-    {
-        document.getElementById("imgFilm").src="JS/barney.jpg";
-    }
-    if (img == 4)
-    {
-        document.getElementById("imgFilm").src="JS/barney.jpg";
-    }
+      document.getElementById("imgFilm").src="img/"+img+".jpg";
+
 
 }
