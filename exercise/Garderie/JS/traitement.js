@@ -1,4 +1,4 @@
-var Vet, Msg, PrixT, Toilet, Jour, Prix, HJour, VetP;
+var Vet, Msg, PrixT, Toilet, Jour, Prix, HJour, VetP, valide;
 
 
 PrixT = 0;
@@ -28,7 +28,7 @@ function saisirPrix_animal()
 function saisirToiletage()
 {
     Toilet = document.getElementById("chkServ").value;
-    if (document.getElementById("chkServ").checked == true)
+    if (document.getElementById("chkServ").checked === true)
     {
         Toilet = 5
 
@@ -70,10 +70,12 @@ function saisirNb_heure_jour()
 
 function btnCalculer_onclick()
 {
+
     saisirNb_heure_jour();
     saisirTaux_horaire();
     saisirToiletage();
     saisirPrix_animal();
+    valideChampsObligatoires();
 
 
     NbHTot = HJour*VetP;
@@ -94,7 +96,7 @@ function btnCalculer_onclick()
             PrixT = PrixT*0.85
         }
 
-        PrixT =  PrixT+NbHTot
+        PrixT =  PrixT+NbHTot;
         Msg = document.getElementById("lblMessage").innerHTML="Cela vous couterai " + PrixT + " $";
 
 
@@ -115,4 +117,50 @@ function radChat_onclick()
 function radChien_onclick()
 {
        document.getElementById("img").src="img/Barney.jpg"
+}
+
+function valideChampsObligatoires()
+{
+    var valide;
+    var  TabDonnesEntre = new Array(2);
+
+
+    TabDonnesEntre[0] = valideExiste("txtHJours");
+    TabDonnesEntre[1] = valideExiste("txtNbreJours");
+
+
+    for (i = 0 ; i > TabDonnesEntre.Length ; i++)
+    {
+        if (TabDonnesEntre[i] === true)
+        {
+            valide = true;
+        }
+        else
+        {
+            valide = false;
+        }
+
+    }
+    return valide;
+
+
+
+
+}
+
+function valideExiste(Case)
+{
+    var valide= false;
+
+    if (document.getElementById(Case).value === "")
+    {
+        valide = false;
+        document.getElementById(Case).style.backgroundColor = "red";
+    }
+    else{
+        valide = true;
+        document.getElementById(Case).style.backgroundColor = "white";
+    }
+    return valide;
+
 }
