@@ -15,7 +15,7 @@ NbHTot = 0;
 function saisirPrix_animal()
 {
 
-    if (document.getElementById("radChien").checked == true)
+    if (document.getElementById("radChien").checked === true)
     {
         Prix = 18.50
 
@@ -65,6 +65,7 @@ function saisirNb_heure_jour()
     Jour = parseInt(document.getElementById("txtNbreJours").value);
     HJour = parseInt(document.getElementById("txtHJours").value);
 }
+
 
 
 
@@ -122,11 +123,13 @@ function radChien_onclick()
 function valideChampsObligatoires()
 {
     var valide;
-    var  TabDonnesEntre = new Array(2);
+    var  TabDonnesEntre = new Array(4);
 
 
     TabDonnesEntre[0] = valideExiste("txtHJours");
     TabDonnesEntre[1] = valideExiste("txtNbreJours");
+    TabDonnesEntre[2] = valideExiste("txtNomClient");
+    TabDonnesEntre[3] = valideExiste("txtNomAni");
 
 
     for (i = 0 ; i > TabDonnesEntre.Length ; i++)
