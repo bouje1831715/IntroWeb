@@ -4,7 +4,10 @@ function btnCalculer_onclick()
     saisir();
     if (valideChampsObligatoires() === true)
     {
-        traitement(Nb1, Nb2, Op);
+        if (valideFormats() === true)
+        {
+            traitement(Nb1, Nb2, Op);
+        }
     }
 }
 
@@ -74,9 +77,6 @@ function valideChampsObligatoires()
     }
     return valide;
 
-
-
-
 }
 
 function valideExiste(Case)
@@ -93,7 +93,33 @@ function valideExiste(Case)
         document.getElementById(Case).style.backgroundColor = "white";
     }
     return valide;
+}
 
+function valideFormats()
+{
+    var valide = true;
+    var  TabDonnesEntre = new Array("txtNbre1", "txtNbre2", "txtOperateur");
+
+    for (i = 0 ; i < TabDonnesEntre.length ; i++)
+    {
+        if (valideNo(TabDonnesEntre[i]) === false)
+        {
+            valide = false;
+            document.getElementById(TabDonnesEntre[i]).style.backgroundColor = "red";
+        }
+        else
+        {
+            valide = true;
+            document.getElementById(TabDonnesEntre[i]).style.backgroundColor = "white";
+        }
+
+    }
+    return valide;
+}
+
+function valideNo(chaine)
+{
+    return /^[0-9]+|[+*/-]{1}$/.test(document.getElementById(chaine).value);
 }
 
 
