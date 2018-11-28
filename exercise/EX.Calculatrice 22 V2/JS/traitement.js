@@ -1,8 +1,11 @@
 function btnCalculer_onclick()
 {
     var Nb1, Nb2, Op, result, valide;
-    valideChampsObligatoires();
     saisir();
+    if (valideChampsObligatoires() === true)
+    {
+        traitement(Nb1, Nb2, Op);
+    }
 }
 
 function traitement(Nb1, Nb2, Op)
@@ -21,7 +24,7 @@ function saisir()
     Nb2 = parseInt(document.getElementById("txtNbre2").value);
     Op = document.getElementById("txtOperateur").value;
 
-    traitement(Nb1, Nb2, Op);
+
 }
 function calculer(Nb1, Nb2, Op)
 {   var result;
@@ -95,95 +98,3 @@ function valideExiste(Case)
 
 
 
-
-
-
-/*
-function valideChampsObligatoires()
-{
-    var valide1, valide2, valideOp;
-
-    valide1 = valideExiste1();
-    valide2 = valideExiste2();
-    valideOp = valideExisteOp();
-
-
-    if (valide1 === false)
-    {
-        document.getElementById("txtNbre1").style.backgroundColor = "red";
-    }
-    else if (valide2 === false)
-    {
-        document.getElementById("txtNbre2").style.backgroundColor = "red";
-    }
-    else if (valideOp === false)
-    {
-        document.getElementById("txtOperateur").style.backgroundColor = "red";
-    }
-
-
-    if (valide1 === true)
-    {
-        document.getElementById("txtNbre1").style.backgroundColor = "white";
-    }
-    else if (valide2 === true)
-    {
-        document.getElementById("txtNbre2").style.backgroundColor = "white";
-    }
-    else if (valideOp === true)
-    {
-        document.getElementById("txtOperateur").style.backgroundColor = "white";
-    }
-
-
-}
-
-function valideExiste1()
-{
-
-    var valide;
-
-    if (document.getElementById("txtNbre1").value === "")
-    {
-        valide = false;
-    }
-    else
-    {
-        valide = true;
-    }
-    return valide;
-
-}
-function valideExiste2()
-{
-
-    var valide;
-
-    if (document.getElementById("txtNbre2").value === "")
-    {
-        valide = false;
-    }
-    else
-    {
-        valide = true;
-    }
-    return valide;
-
-}
-function valideExisteOp()
-{
-
-    var valide;
-
-    if (document.getElementById("txtOperateur").value === "")
-    {
-        valide = false;
-    }
-    else
-    {
-        valide = true;
-    }
-    return valide;
-
-}
-*/

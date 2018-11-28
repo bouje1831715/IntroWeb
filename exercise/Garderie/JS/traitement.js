@@ -76,14 +76,13 @@ function btnCalculer_onclick()
     saisirTaux_horaire();
     saisirToiletage();
     saisirPrix_animal();
-    valideChampsObligatoires();
+    if(valideChampsObligatoires() === true)
+    {
+        NbHTot = HJour*VetP;
+        PrixT = Prix*Jour+Toilet;
 
 
-    NbHTot = HJour*VetP;
-    PrixT = Prix*Jour+Toilet;
-
-
-    //rabais jour
+        //rabais jour
         if (Jour>=5 && Jour<= 10)
         {
             PrixT = PrixT*0.95
@@ -99,6 +98,11 @@ function btnCalculer_onclick()
 
         PrixT =  PrixT+NbHTot;
         Msg = document.getElementById("lblMessage").innerHTML="Cela vous couterai " + PrixT + " $";
+    }
+
+
+
+
 
 
 
