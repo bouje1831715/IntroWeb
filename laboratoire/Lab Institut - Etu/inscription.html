@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<title>laboratoire</title>
+<meta charset="UTF-8">
+<meta name="description" content="laboratoire Institut des sciences de la mer de Rimousky">
+<meta name="author" content="Lucie Fortin">
+<link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+	<!--Main-->
+	<main>
+		<!--header-->
+		<header>
+		<!--nav_mu-->
+		<div id="bloc_logo">
+			<img src="img/logo.png" width="256" height="56" alt="logo de institut"></div>
+		<div id="nav_mu">
+			<ul><li><a href="#" target="_blank">| Jeux</a></li><li><a href="#" target="_blank">| Sondage</a></li><li><a href="index.html" target="_blank">| Nous joindre</a></li></ul>
+		</div>
+		<!--Fin nav_mu-->
+		</header>
+		<!--fin Header-->
+		
+		<!--container-->
+		<container>
+		<!--aside-->
+		<aside>
+			<img class="img_aside_float" src="img/aside.jpg" height="222" width="211" alt="poisson dans le aside">
+			<img class="img_aside_float" src="img/pour_nous_joindre.png" height="261" width="45" alt="indication pour nous joindre dans le aside">	
+		</aside>
+		<!--fin aside-->
+		<!--section-->
+		<section>
+			<!--Nav-->
+			<nav>
+			<ul><li><a href="#" target="_blank">Accueil</a></li><li><a href="#" target="_blank">| Formation</a></li><li><a href="#" target="_blank">| Membres</a></li><li><a href="#" target="_blank">| Services</a></li></ul>
+			</nav>
+			<!--fin Nav-->
+			<h1>Entrez les informations du membre</h1>
+			<!--boîte de texte-->
+			<form  method="get" id="frmMembre" action="Reponse.htm" onsubmit = "return frmMembre_onsubmit()">
+			<label id="lblMessageErreur"></label>
+			<div><label>Nom<span>*</span></label><input type="text" id="txtNom" name="txtNom"  size="40" ></div>
+			<div><label>Prénom<span>*</span></label><input type="text" id="txtPrenom" name="txtPrenom" size="40"></div>
+			<div><label>Adresse</label><input type="text" id="txtAdresse" name="txtAdresse" size="40" ></div>
+			<div><label>Ville<span>*</span></label><input type="text" id="txtVille" name="txtVille" size="40" ></div>
+			<div><label>Code postal</label><input type="text" id="txtCodePostal" name="txtCodePostal" size="15" ></div>
+			<div><label>Téléphone<span>*</span></label><input type="text" id="txtTel" name="txtTel" size="13" class="obligatoire" value=""></div>
+			<div><label>Code permanant</label><input type="text" id="txtCodePerm" name="txtCodePerm" size="12" ></div>
+			<label for="type">Catégorie</label><select id="type" name="type">
+				<option value="adulte" selected>adulte</option>
+				<option value="étudiant">étudiant</option>
+				<option value="retraité">retraité</option>
+			</select>
+			<div id="Boutons"><input class="bouton" value="Envoyer" id="btnEnvoyer" type="button"onclick="frmMembre_onclick()" />   <input class="bouton" type="reset" value="Réintialiser"/></div>
+				<label id="lblPrix"></label>
+		</form>
+			<!--ligne de séparation-->
+			<hr>
+		</section>			
+		<!--fin section-->
+		</container>
+		<!--fin container-->
+		<!--footer-->
+		<footer>
+			<ul><li><a href="#" target="_blank">Accueil</a></li><li><a href="#" target="_blank">| Formation</a></li><li><a href="#" target="_blank">| Membres</a></li><li><a href="#" target="_blank">| Services</a></li></ul>
+
+			<p>&copy 2018 <b>Institut des sciences de la mer de Rimousky.</b> Tous droits réservés.</p> 
+			<p>Ce site est optimisé pour 1200x1080px</p>
+		</footer>
+		<!--fin footer-->
+	</main>
+	<!--fin Main-->
+<script src="JS/traitement.js"></script>
+</body>
+</html>
