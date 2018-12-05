@@ -1,3 +1,6 @@
+var  tabNomComplet = new Array(99);
+var  tabAge = new Array(99);
+
 function frmMembre_onsubmit()
 {
     var result;
@@ -191,20 +194,36 @@ function confirme()
     return result;
 }
 
-//___________________________________________________onsubmit__________________
-function confirm_reset()
-{
-    var result;
-    var r = confirm("est-ce que vous voulez vraiment recommencez ?");
+//______________________________________________BASE DE DONNÉES______________________________
 
-    if (r === true)
+function ajouterMembre()
+{
+    var nom, age;
+    var cpt;
+
+    nom = document.getElementById("txtPrenom").value;
+    age = parseInt(document.getElementById("txtAge").value);
+    tabNomComplet[cpt] = nom;
+    tabAge[cpt] = age;
+
+    cpt++;
+}
+
+function trouverNomPlusJeune()
+{
+    var trouverPlusJeune = false;
+    var plusJeune = 0;
+    var agePlusJeune = 999;
+
+    for(i = 0; i<tabAge.length; i++)
     {
-        result = true;
+        if (tabAge[i] < agePlusJeune)
+        {
+            plusJeune = i;
+        }
+
+
     }
-    else
-    {
-        result = false;
-    }
-    return result;
+    document.getElementById("lblPrix").innerHTML="Le plus jeune est " + tabNomComplet[plusJeune] + " agé de " + tabAge[plusJeune] + " ans";
 }
 

@@ -43,6 +43,7 @@
 			<label id="lblMessageErreur"></label>
 			<div><label>Nom<span>*</span></label><input type="text" id="txtNom" name="txtNom"  size="40" ></div>
 			<div><label>Prénom<span>*</span></label><input type="text" id="txtPrenom" name="txtPrenom" size="40"></div>
+				<div><label>Age<span>*</span></label><input type="text" id="txtAge" name="txtAge" size="40"></div>
 			<div><label>Adresse</label><input type="text" id="txtAdresse" name="txtAdresse" size="40" ></div>
 			<div><label>Ville<span>*</span></label><input type="text" id="txtVille" name="txtVille" size="40" ></div>
 			<div><label>Code postal</label><input type="text" id="txtCodePostal" name="txtCodePostal" size="15" ></div>
@@ -53,8 +54,9 @@
 				<option value="étudiant">étudiant</option>
 				<option value="retraité">retraité</option>
 			</select>
-			<div id="Boutons"><input class="bouton" value="Envoyer" id="btnEnvoyer" type="submit" onclick="frmMembre_onsubmit()" />
-				<input class="bouton" type="reset" value="Réintialiser"  onclick="return confirm_reset()"/></div>
+				<input class="bouton" type="button" value="Trouver le plus jeune"  onclick="trouverNomPlusJeune()"/></div>
+				<input class="bouton" type="button" value="Ajouter Membre"  onclick="ajouterMembre()"/></div>
+			<div id="Boutons"><input class="bouton" value="Envoyer" id="btnEnvoyer" type="submit" onclick="frmMembre_onsubmit()" />   <input class="bouton" type="reset" value="Réintialiser"/></div>
 				<label id="lblPrix"></label>
 		</form>
 			<!--ligne de séparation-->
